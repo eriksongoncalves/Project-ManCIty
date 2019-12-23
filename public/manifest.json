@@ -1,0 +1,9 @@
+{
+  "short_name": "Manchester City",
+  "name": "Manchester City Football Club",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#8BBEE5",
+  "background_color": "#E1F8FB"
+}
