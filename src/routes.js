@@ -1,9 +1,7 @@
 import React from 'react';
-import Layout from "./Hoc/Layout";
 import { Switch, Route } from 'react-router-dom';
-
-import Home from './Components/home';
-
+import Layout from "~/components/Layout";
+import Home from '~/pages/home';
 
 const Routes = () => (
   <Layout>
