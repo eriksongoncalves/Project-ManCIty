@@ -6,31 +6,31 @@ import { firebasePromotions } from '~/firebase';
 
 class Enroll extends Component {
 
-  state={
+  state = {
     formError: false,
     formSuccess: '',
     formData: {
       email: {
         element: 'input',
-        value:'',
-        config:{
+        value: '',
+        config: {
           name: 'email_input',
           type: 'email',
           placeholder: 'Enter your email'
         },
-        validation:{
+        validation: {
           required: true,
           email: true
         },
         valid: false,
-        validationMessage:''
+        validationMessage: ''
       }
     }
   }
 
   updateForm = element => {
-    const newFormData = {...this.state.formData};
-    const newElement = {...newFormData[element.id]};
+    const newFormData = { ...this.state.formData };
+    const newElement = { ...newFormData[element.id] };
 
     newElement.value = element.event.target.value;
 
@@ -48,9 +48,9 @@ class Enroll extends Component {
   }
 
   resetFormSuccess = type => {
-    const newFormData = {...this.state.formData};
+    const newFormData = { ...this.state.formData };
 
-    for (let key in newFormData){
+    for (let key in newFormData) {
       newFormData[key].value = '';
       newFormData[key].valid = false;
       newFormData[key].validationMessage = '';
@@ -79,29 +79,27 @@ class Enroll extends Component {
     let dataToSubmit = {};
     let formIsValid = true;
 
-    for (let key in this.state.formData){
+    for (let key in this.state.formData) {
       dataToSubmit[key] = this.state.formData[key].value;
       formIsValid = this.state.formData[key].valid && formIsValid;
     }
 
-    if (formIsValid){
+    if (formIsValid) {
       firebasePromotions
         .orderByChild('email')
         .equalTo(dataToSubmit.email)
         .once("value")
         .then(snapshot => {
-          if(!snapshot.val()){
+          if (!snapshot.val()) {
             firebasePromotions.push(dataToSubmit);
             this.resetFormSuccess(true);
           }
-          else{
+          else {
             this.resetFormSuccess(false);
           }
         });
-
-      
     }
-    else{
+    else {
       this.setState({
         formError: true
       })
@@ -117,7 +115,7 @@ class Enroll extends Component {
               Enter your email
             </div>
             <div className="enroll_input">
-              <FormField 
+              <FormField
                 id="email"
                 formData={this.state.formData.email}
                 change={element => this.updateForm(element)}
@@ -125,11 +123,11 @@ class Enroll extends Component {
 
               {this.state.formError && <div className="error_label">Something is wrong, try again.</div>}
               {this.state.formSuccess && <div className="success_label">{this.state.formSuccess}</div>}
-              
+
               <button onClick={e => this.submitForm(e)}>Enroll</button>
 
               <div className="enroll_discl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a sem mauris. Morbi imperdiet luctus mauris eu malesuada. Nulla porttitor lacus ullamcorper ex mollis ultrices
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a sem mauris. Morbi imperdiet luctus mauris eu malesuada. Nulla porttitor lacus ullamcorper ex mollis ultrices
               </div>
 
             </div>
