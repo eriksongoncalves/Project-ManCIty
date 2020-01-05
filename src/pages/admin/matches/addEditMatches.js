@@ -5,7 +5,7 @@ import FormField from '~/components/ui/formFields';
 import { validate } from '~/components/ui/misc';
 
 import { firebaseTeams, firebaseMatches, firebaseDB } from "~/firebase";
-import { firebaseLooper, reverseArray } from "~/components/ui/misc";
+import { firebaseLooper } from "~/components/ui/misc";
 
 class AddEditMatches extends Component {
 

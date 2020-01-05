@@ -11,6 +11,7 @@ import SignIn from './pages/home/signin';
 import Dashboard from './pages/admin/dashboard';
 import AdminMatches from './pages/admin/matches';
 import AddEditMatches from './pages/admin/matches/addEditMatches';
+import AdminPlayers from './pages/admin/players';
 
 const Routes = props => (
   <Layout>
@@ -19,6 +20,7 @@ const Routes = props => (
       <PrivateRoute {...props} path="/admin_matches/edit_match/:id" component={AddEditMatches} />
       <PrivateRoute {...props} path="/admin_matches/edit_match" component={AddEditMatches} />
       <PrivateRoute {...props} path="/admin_matches" component={AdminMatches} />
+      <PrivateRoute {...props} path="/admin_players" component={AdminPlayers} />
 
       <PublicRoute {...props} restricted path="/sign_in" component={SignIn} />
       <PublicRoute {...props} exact path="/" component={Home} />
