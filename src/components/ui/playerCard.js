@@ -4,11 +4,9 @@ const PlayerCard = ({ number, name, lastName, bck }) => (
   <div className="player_card_wrapper">
     <div
       className="player_card_thmb"
-      style={{
-        background: `url(${bck})`
-      }}
+      style={{ background: `#f2f9ff url(${bck})` }}
     ></div>
-    <div className="player_card_info">
+    <div className="player_card_nfo">
       <div className="player_card_number">
         {number}
       </div>
