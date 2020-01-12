@@ -4,6 +4,7 @@ import Layout from "~/components/Layout";
 
 import PrivateRoute from "~/components/authRoutes/PrivateRoute";
 import PublicRoute from "~/components/authRoutes/PublicRoute";
+import NotFound from './components/ui/not_found';
 
 import Home from './pages/home';
 import TheTeam from './pages/theTeam';
@@ -15,6 +16,7 @@ import AdminMatches from './pages/admin/matches';
 import AddEditMatches from './pages/admin/matches/addEditMatches';
 import AdminPlayers from './pages/admin/players';
 import AddEditPlayers from './pages/admin/players/addEditPlayers';
+
 
 
 const Routes = props => (
@@ -32,6 +34,7 @@ const Routes = props => (
       <PublicRoute {...props} exact path="/" component={Home} />
       <PublicRoute {...props} exact path="/the_team" component={TheTeam} />
       <PublicRoute {...props} exact path="/the_matches" component={TheMatches} />
+      <PublicRoute {...props} exact component={NotFound} />
     </Switch>
   </Layout>
 )
