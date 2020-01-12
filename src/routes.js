@@ -7,6 +7,7 @@ import PublicRoute from "~/components/authRoutes/PublicRoute";
 
 import Home from './pages/home';
 import TheTeam from './pages/theTeam';
+import TheMatches from './pages/theMatches';
 import SignIn from './pages/home/signin';
 
 import Dashboard from './pages/admin/dashboard';
@@ -30,6 +31,7 @@ const Routes = props => (
       <PublicRoute {...props} restricted path="/sign_in" component={SignIn} />
       <PublicRoute {...props} exact path="/" component={Home} />
       <PublicRoute {...props} exact path="/the_team" component={TheTeam} />
+      <PublicRoute {...props} exact path="/the_matches" component={TheMatches} />
     </Switch>
   </Layout>
 )
